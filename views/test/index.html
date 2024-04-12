@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: "Outfit", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+        }
+    </style>
+    <div class="flex flex-col">
+        <div class="fixed w-screen">
+            <div class="flex justify-center items-center bg-slate-200 h-16 shadow-xl">
+                <div class="mr-auto mx-8 text-4xl text-gray-700 text-green-700">
+                    <i class='bx bx-leaf'></i>
+                    Anthropometric Profile
+                </div>
+                <div class="flex gap-4 mx-8 text-lg">
+                    <div class="bg-green-400 rounded-xl p-2">
+                        <a href="#">
+                            Demographics
+                        </a>
+                    </div>
+                    <div class="p-2 hover:text-green-700">
+                        <a href="#">
+                            Data Entry
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-screen bg-slate-200">
+            <!-- cards -->
+            <div class="flex pt-24 px-8">
+                <div class="bg-white p-4 rounded-lg shadow-xl">
+                    <div class="text-xl text-gray-700">
+                        <i class='bx bx-file-find text-green-500' ></i>
+                        Search/Filters
+                    </div>
+                    <div class="flex flex-wrap gap-8">
+                        <div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="#searchQCode">Search by QCode/Fullname:</label>
+                                <input type="text" id="searchQCode" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="#filterAge">Filter By Age:</label>
+                                <input type="number" id="filterAge" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="">Filter By Municipality:</label>
+                                <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="">Search by Date Measured:</label>
+                                <input type="date" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="#filterAge">Filter By Baranggay:</label>
+                                <input type="text" id="filterAge" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="">Filter By Province:</label>
+                                <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-col my-4">
+                                <label for="">Search by Farm Involvement:</label>
+                                <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+
+                            <div class="flex flex-col my-4">
+                                <label for="">Filter By Region:</label>
+                                <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end cards -->
+            <!-- table -->
+            <div class="flex my-4 mx-8">
+                <div class="w-screen p-2 bg-white rounded-xl shadow-xl">
+                    <div class="p-2 text-lg">
+                        <i class='bx bx-table text-green-500' ></i>
+                        Demographics Table
+                    </div>
+                    <div class="flex justify-center">
+                        <table>
+                            <thead>
+                                <tr class="bg-green-400">
+                                    <th class="px-9 py-2">QCode</th>
+                                    <th class="px-9 py-2">Surname</th>
+                                    <th class="px-9 py-2">Given Name</th>
+                                    <th class="px-9 py-2">Middle Name</th>
+                                    <th class="px-9 py-2">Date Measured</th>
+                                    <th class="px-9 py-2">Age</th>
+                                    <th class="px-9 py-2">Sex</th>
+                                    <th class="px-9 py-2">Contact No.</th>
+                                    <th class="px-9 py-2">Position</th>
+                                    <th class="px-9 py-2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-200">
+                                    <td class="text-center py-2 border-b">XXXXX</td>
+                                    <td class="text-center py-2 border-b">De LaCruz</td>
+                                    <td class="text-center py-2 border-b">Juan</td>
+                                    <td class="text-center py-2 border-b">Ponce</td>
+                                    <td class="text-center py-2 border-b"></td>
+                                    <td class="text-center py-2 border-b">99</td>
+                                    <td class="text-center py-2 border-b">M</td>
+                                    <td class="text-center py-2 border-b">0999999999</td>
+                                    <td class="text-center py-2 border-b">Farmer</td>
+                                    <td class="text-center py-2 border-b"></td>
+                                </tr>
+                                <tr class="hover:bg-gray-200">
+                                    <td class="text-center py-2 border-b">XXXXX</td>
+                                    <td class="text-center py-2 border-b">De LaCruz</td>
+                                    <td class="text-center py-2 border-b">Juan</td>
+                                    <td class="text-center py-2 border-b">Ponce</td>
+                                    <td class="text-center py-2 border-b"></td>
+                                    <td class="text-center py-2 border-b">99</td>
+                                    <td class="text-center py-2 border-b">M</td>
+                                    <td class="text-center py-2 border-b">0999999999</td>
+                                    <td class="text-center py-2 border-b">Farmer</td>
+                                    <td class="text-center py-2 border-b"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end table -->
+        </div>
+    </div>
+</body>
+</html>
