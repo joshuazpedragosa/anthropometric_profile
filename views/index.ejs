@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/costume.css">
+    <link rel="stylesheet" href="/css/output.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Anthropometric Profile</title>
 </head>
 <body>
-    Test page
+    <div class="flex flex-col">
+        <div class="fixed w-screen">
+            <div class="flex justify-center items-center bg-slate-100 h-16 shadow-xl">
+                <div class="mr-auto mx-8 text-4xl text-green-700">
+                    <i class='bx bx-leaf'></i>
+                    Anthropometric Profile
+                </div>
+                <div class="flex gap-4 mx-8 text-lg">
+                    <div class="p-2 hover:bg-green-400 hover:rounded-xl duration-300 ease-linear">
+                        <a href="/">
+                            Demographics
+                        </a>
+                    </div>
+                    <div class="p-2 hover:bg-green-400 hover:rounded-xl duration-300 ease-linear">
+                        <a href="/data_entry">
+                            Data Entry
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="min-h-screen bg-slate-200">
+            <%- content %>
+        </div>
+    </div>
 </body>
 </html>

@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
-app.use(express.static('static'));
+app.use(express.static('components'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
