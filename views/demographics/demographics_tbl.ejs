@@ -1,0 +1,48 @@
+<% if(data && data.length > 0){ %>
+    <% data.forEach((demographics)=>{ %>
+        <tr class="hover:bg-gray-200">
+            <td class="text-center py-2 border-b">
+                <div class="flex gap-4 justify-center text-xl">
+                    <a href="#">
+                        <i class='bx bx-edit text-blue-400'></i>
+                    </a>
+                    <a href="#">
+                        <i class='bx bx-street-view text-green-500' ></i>
+                    </a>
+                    <a href="#">
+                        <i class='bx bx-trash text-red-500' ></i>
+                    </a>
+                </div>
+            </td>
+            <td class="text-center py-2 border-b"><%= demographics.q_code %></td>
+            <td class="text-center py-2 border-b"><%= demographics.sur_name %></td>
+            <td class="text-center py-2 border-b"><%= demographics.given_name %></td>
+            <td class="text-center py-2 border-b"><%= demographics.middle_name %></td>
+            <td class="text-center py-2 border-b"><%= demographics.date %></td>
+            <td class="text-center py-2 border-b"><%= demographics.age %></td>
+            <td class="text-center py-2 border-b"><%= demographics.sex %></td>
+            <td class="text-center py-2 border-b"><%= demographics.contact_num %></td>
+            <td class="text-center py-2 border-b"><%= demographics.position %></td>
+            <td class="text-center py-2 border-b"><%= demographics.marital_stat %></td>
+            <td class="text-center py-2 border-b"><%= demographics.pwd %></td>
+            <td class="text-center py-2 border-b"><%= demographics.barangay %></td>
+            <td class="text-center py-2 border-b"><%= demographics.municipality %></td>
+            <td class="text-center py-2 border-b"><%= demographics.province %></td>
+            <td class="text-center py-2 border-b"><%= demographics.region %></td>
+            <td class="text-center py-2 border-b"><%= demographics.educational_attainment %></td>
+            <td class="text-center py-2 border-b"><%= demographics.org_name %></td>
+            <td class="text-center py-2 border-b"><%= demographics.farm_commodity %></td>
+            <td class="text-center py-2 border-b"><%= demographics.farming_act %></td>
+            <td class="text-center py-2 border-b"><%= demographics.farm_involvement %></td>
+            <td class="text-center py-2 border-b"><%= demographics.proprietorship %></td>
+            <td class="text-center py-2 border-b"><%= demographics.farm_area %></td>
+            <td class="text-center py-2 border-b"><%= demographics.machinery_types %></td>
+            <td class="text-center py-2 border-b"><%= demographics.years_exp %></td>
+            <td class="text-center py-2 border-b"><%= demographics.farm_primary_secondary %></td>
+        </tr>
+    <% }) %>
+<% }else{ %>
+    <tr class="hover:bg-gray-200">
+        <td class="text-center py-2 border-b" colspan="10">No Data found.</td>
+    </tr>
+<% } %>
