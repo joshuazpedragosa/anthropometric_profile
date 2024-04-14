@@ -28,6 +28,9 @@ async function displayDemographicsStatistics(){
     document.querySelector('#rangeMin').innerHTML = res_data.range_min;
     document.querySelector('#rangeMax').innerHTML = res_data.range_max;
     document.querySelector('#cvPercent').innerHTML = res_data.cv_percent;
+    document.querySelector('#percentile5th').innerHTML = res_data.percentile_5th;
+    document.querySelector('#percentile50th').innerHTML = res_data.percentile_50th;
+    document.querySelector('#percentile95th').innerHTML = res_data.percentile_95th;
 }
 
 displayDemographicsStatistics()

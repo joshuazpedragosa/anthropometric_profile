@@ -47,6 +47,9 @@ route.get('/demographics_stat', async(req, res)=>{
         let range_min = 0;
         let range_max = 0;
         let cv_percent = 0;
+        let percentile_5th = 0;
+        let percentile_50th = 0;
+        let percentile_95th = 0;
 
         let list_age = [];
         //Mean formula
@@ -81,13 +84,33 @@ route.get('/demographics_stat', async(req, res)=>{
         //------------------------------------------------
         //CV(%)
         cv_percent = (Standard_deviation/Mean) * 100;
+        //------------------------------------------------
+        const sorted_age_list = list_age.sort();
+
+        //5th percentile
+        const product = 0.05*sorted_age_list.length;
+        const rounded_num = Math.round(product);
+        percentile_5th = sorted_age_list[rounded_num - 1];
+
+        //50th percentile
+        const product_50th = 0.5*sorted_age_list.length;
+        const rounded_num_50th = Math.round(product_50th);
+        percentile_50th = sorted_age_list[rounded_num_50th - 1];
+
+        //95th percentile
+        const product_95th = 0.95*sorted_age_list.length;
+        const rounded_num_95th = Math.round(product_95th);
+        percentile_95th = sorted_age_list[rounded_num_95th - 1];
 
         let statistics = {
             mean : Mean.toFixed(2),
             standard_deviation : Standard_deviation.toFixed(2),
             range_min : range_min.toFixed(2),
             range_max : range_max.toFixed(2),
-            cv_percent : cv_percent.toFixed(2)
+            cv_percent : cv_percent.toFixed(2),
+            percentile_5th : percentile_5th,
+            percentile_50th : percentile_50th,
+            percentile_95th : percentile_95th
         }
 
         res.status(200).json(statistics);
