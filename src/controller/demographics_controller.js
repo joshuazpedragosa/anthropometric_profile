@@ -3,6 +3,7 @@ const route = express.Router();
 const demographics_model = require('./../model/demographics_model');
 const fs = require('fs');
 const ejs = require('ejs');
+const statistics_measure = require('./../services/statistics');
 
 route.post('/save_data', async(req, res)=>{
     try{
@@ -41,66 +42,20 @@ route.get('/demographics_stat', async(req, res)=>{
     try{
 
         const demographics_data = await demographics_model.demographicsData();
-
-        let Mean = 0;
-        let Standard_deviation = 0;
-        let range_min = 0;
-        let range_max = 0;
-        let cv_percent = 0;
-        let percentile_5th = 0;
-        let percentile_50th = 0;
-        let percentile_95th = 0;
-
         let list_age = [];
-        //Mean formula
-        let num_items = demographics_data.length;
-        let total_age = 0;
 
         for(const data of demographics_data){
-            total_age += data.age;
             list_age.push(data.age);
         }
 
-        Mean = total_age/num_items;
-        //------------------------------------------------
-
-        //Standard Deviation
-        let total_sq_diff = 0;
-
-        for(const data of demographics_data){
-            let mean_diff = data.age - Mean;
-            let sq_diff = mean_diff * mean_diff;
-            total_sq_diff += sq_diff;
-        }
-
-        let mean_sq_diff = total_sq_diff/num_items;
-        Standard_deviation = Math.sqrt(mean_sq_diff);
-        //------------------------------------------------
-
-        //Range Min
-        range_min = Math.min(...list_age);
-        //Range Max
-        range_max = Math.max(...list_age);
-        //------------------------------------------------
-        //CV(%)
-        cv_percent = (Standard_deviation/Mean) * 100;
-        //------------------------------------------------
-        const sorted_age_list = list_age.sort();
-
-        //5th percentile
-        const product = 0.05*sorted_age_list.length;
-        const rounded_num = Math.round(product);
-        percentile_5th = sorted_age_list[rounded_num - 1];
-
-        //50th percentile
-        const product_50th = 0.5*sorted_age_list.length;
-        const rounded_num_50th = Math.round(product_50th);
-        percentile_50th = sorted_age_list[rounded_num_50th - 1];
-
-        //95th percentile
-        const product_95th = 0.95*sorted_age_list.length;
-        const rounded_num_95th = Math.round(product_95th);
-        percentile_95th = sorted_age_list[rounded_num_95th - 1];
+        let Mean = await statistics_measure.mean(list_age);
+        let Standard_deviation = await statistics_measure.standardDeviation(list_age, Mean);
+        let range_min = await statistics_measure.rangeMin(list_age);
+        let range_max = await statistics_measure.rangeMax(list_age);
+        let cv_percent = await statistics_measure.cvPercent(Standard_deviation, Mean);
+        let percentile_5th = await statistics_measure.percentile5th(list_age);
+        let percentile_50th = await statistics_measure.percentile50th(list_age);
+        let percentile_95th = await statistics_measure.percentile95th(list_age);
 
         let statistics = {
             mean : Mean.toFixed(2),
@@ -114,6 +69,108 @@ route.get('/demographics_stat', async(req, res)=>{
         }
 
         res.status(200).json(statistics);
+        
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'});
+        console.error('Error: ', error);
+    }
+})
+
+route.post('/search_qcode_name', async(req, res)=>{
+    try{
+
+        const data = req.body.search;
+        const search_result = await demographics_model.seacrhByQCodeORName(data);
+
+        const template = fs.readFileSync('views/demographics/demographics_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : search_result});
+
+        res.status(200).json({data : content});
+        
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'});
+        console.error('Error: ', error);
+    }
+})
+
+route.post('/search_barangay', async(req, res)=>{
+    try{
+
+        const data = req.body.search;
+        const search_result = await demographics_model.seacrhByBarangay(data);
+
+        const template = fs.readFileSync('views/demographics/demographics_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : search_result});
+
+        res.status(200).json({data : content});
+        
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'});
+        console.error('Error: ', error);
+    }
+})
+
+route.post('/search_age', async(req, res)=>{
+    try{
+
+        const data = req.body.search;
+        const search_result = await demographics_model.seacrhByAge(data);
+
+        const template = fs.readFileSync('views/demographics/demographics_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : search_result});
+
+        res.status(200).json({data : content});
+        
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'});
+        console.error('Error: ', error);
+    }
+})
+
+route.post('/search_province', async(req, res)=>{
+    try{
+
+        const data = req.body.search;
+        const search_result = await demographics_model.seacrhByProvince(data);
+
+        const template = fs.readFileSync('views/demographics/demographics_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : search_result});
+
+        res.status(200).json({data : content});
+        
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'});
+        console.error('Error: ', error);
+    }
+})
+
+route.post('/search_municipality', async(req, res)=>{
+    try{
+
+        const data = req.body.search;
+        const search_result = await demographics_model.seacrhBymunicipality(data);
+
+        const template = fs.readFileSync('views/demographics/demographics_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : search_result});
+
+        res.status(200).json({data : content});
+        
+    }catch(error){
+        res.status(500).json({msg : 'Internal Server Error'});
+        console.error('Error: ', error);
+    }
+})
+
+route.post('/search_farm_involvement', async(req, res)=>{
+    try{
+
+        const data = req.body.search;
+        const search_result = await demographics_model.seacrhByBFarmInvolvement(data);
+
+        const template = fs.readFileSync('views/demographics/demographics_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : search_result});
+
+        res.status(200).json({data : content});
         
     }catch(error){
         res.status(500).json({msg : 'Internal Server Error'});

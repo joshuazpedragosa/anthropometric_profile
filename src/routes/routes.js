@@ -17,4 +17,11 @@ route.get('/data_entry',  (req, res)=>{
     res.render('index', {content : content});
 })
 
+route.get('/measurement', (req, res)=>{
+    const template = fs.readFileSync('views/measurement/measurement.ejs', 'utf-8');
+    const content = ejs.render(template);
+
+    res.render('index', {content : content});
+})
+
 module.exports = route;

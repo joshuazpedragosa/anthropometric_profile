@@ -1,0 +1,72 @@
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">95th Percentile</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.percentile_95th %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th class="py-2">50th Percentile</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.percentile50th %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">5th Percentile</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.percentile5th %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">Mean</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.mean %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">Range Max</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.rangeMax %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">Range Min</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.rangeMin %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">Mode</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.mode %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">Standard Deviation</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.sd %></td>
+        <% }) %>
+    <% } %>
+</tr>
+<tr class="hover:bg-gray-200 border-b">
+    <th  class="py-2">CV (%)</th>
+    <% if(data && data.length > 0){ %>
+        <% data.forEach((stat)=>{ %>
+            <td class="py-2 text-center"><%= stat.cv_percent %></td>
+        <% }) %>
+    <% } %>
+</tr>

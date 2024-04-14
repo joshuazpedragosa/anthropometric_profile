@@ -12,17 +12,17 @@
     
                     <div class="flex flex-col my-4">
                         <label for="#searchQCode">Search by QCode/Fullname:</label>
-                        <input type="text" id="searchQCode" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                        <input type="text" onkeyup="searchQCodeName()" id="searchQCode" class="border outline-none px-2 text-gray-600 focus:border-green-500">
                     </div>
     
                     <div class="flex flex-col my-4">
                         <label for="#filterAge">Filter By Age:</label>
-                        <input type="number" id="filterAge" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                        <input type="number" onkeyup="searchAge()" id="filterAge" class="border outline-none px-2 text-gray-600 focus:border-green-500">
                     </div>
     
                     <div class="flex flex-col my-4">
                         <label for="">Filter By Municipality:</label>
-                        <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                        <input type="text" onkeyup="searchMunicipality()" id="filterMunicipality" class="border outline-none px-2 text-gray-600 focus:border-green-500">
                     </div>
     
                 </div>
@@ -30,31 +30,22 @@
                 <div>
     
                     <div class="flex flex-col my-4">
-                        <label for="">Search by Date Measured:</label>
-                        <input type="date" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
-                    </div>
-    
-                    <div class="flex flex-col my-4">
                         <label for="#filterAge">Filter By Baranggay:</label>
-                        <input type="text" id="filterAge" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                        <input type="text" onkeyup="searchBrgy()" id="filterbrgy" class="border outline-none px-2 text-gray-600 focus:border-green-500">
                     </div>
     
                     <div class="flex flex-col my-4">
                         <label for="">Filter By Province:</label>
-                        <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                        <input type="text" onkeyup="searchProvince()" id="filterProvince" class="border outline-none px-2 text-gray-600 focus:border-green-500">
                     </div>
                 </div>
     
                 <div>
                     <div class="flex flex-col my-4">
                         <label for="">Search by Farm Involvement:</label>
-                        <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
+                        <input type="text" onkeyup="searchInvolvement()" id="Involvement" class="border outline-none px-2 text-gray-600 focus:border-green-500">
                     </div>
     
-                    <div class="flex flex-col my-4">
-                        <label for="">Filter By Region:</label>
-                        <input type="text" id="" class="border outline-none px-2 text-gray-600 focus:border-green-500">
-                    </div>
                 </div>
             </div>
         </div>
@@ -126,7 +117,7 @@
             <table class="max-w-80">
                 <thead>
                     <tr class="bg-green-400">
-                        <th class="px-8 py-2">Action</th>
+                        <th class="hidden px-8 py-2">Action</th>
                         <th class="px-8 py-2">QCode</th>
                         <th class="px-8 py-2">Surname</th>
                         <th class="px-8 py-2">Given Name</th>

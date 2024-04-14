@@ -69,6 +69,97 @@ class Demographics{
             })
         })
     }
+
+    static seacrhByQCodeORName(data){
+        return new Promise((resolve, reject)=>{
+
+            const sql = `SELECT * FROM demographics WHERE q_code LIKE ?
+                         OR sur_name LIKE ? OR given_name LIKE ? OR middle_name LIKE ?`;
+            
+            db.query(sql, [`%${data}%`,`%${data}%`,`%${data}%`,`%${data}%`], (error, result)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
+
+    static seacrhByBarangay(data){
+        return new Promise((resolve, reject)=>{
+
+            const sql = `SELECT * FROM demographics WHERE barangay LIKE ?`;
+            
+            db.query(sql, [`%${data}%`], (error, result)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
+
+    static seacrhByAge(data){
+        return new Promise((resolve, reject)=>{
+
+            const sql = `SELECT * FROM demographics WHERE age LIKE ?`;
+            
+            db.query(sql, [`%${data}%`], (error, result)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
+
+    static seacrhByProvince(data){
+        return new Promise((resolve, reject)=>{
+
+            const sql = `SELECT * FROM demographics WHERE province LIKE ?`;
+            
+            db.query(sql, [`%${data}%`], (error, result)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
+
+    static seacrhBymunicipality(data){
+        return new Promise((resolve, reject)=>{
+
+            const sql = `SELECT * FROM demographics WHERE municipality LIKE ?`;
+            
+            db.query(sql, [`%${data}%`], (error, result)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
+
+    static seacrhByBFarmInvolvement(data){
+        return new Promise((resolve, reject)=>{
+
+            const sql = `SELECT * FROM demographics WHERE farm_involvement LIKE ?`;
+            
+            db.query(sql, [`%${data}%`], (error, result)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
 }
 
 module.exports = Demographics;

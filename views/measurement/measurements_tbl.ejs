@@ -1,0 +1,53 @@
+<% if(data && data.length > 0){ %>
+    <% data.forEach((measurements)=>{ %>
+        <tr class="hover:bg-gray-200">
+            <td class="text-center py-2 border-b"><%= measurements.Respondent_No %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Eye_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Shoulder_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Elbow_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Fingertip_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Knee_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Knuckle_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Crotch_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Hip_Breadth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Waist_Girth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Chest_Girth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Shoulder_Breadth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Head_Circumference %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Upward_Reach %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Arm_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Sideways_Reach %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Total_Span %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Standing_Bust_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Sitting_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Eye_Height_Above_Seat %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Shoulder_to_Elbow_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Elbow_Height_Above_Seat %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Seat_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Sitting_Knee_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Thigh_Clearance %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Buttock_to_Poplietal_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Buttock_to_Knee_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Belly_Depth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Chest_Depth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Forearm_to_Hand_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Forward_Reach %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Sitting_Upward_Reach %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Sitting_Bust_Height %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Breadth_Accross_Elbow %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Sitting_Hip_Breadth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Hand_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Hand_Breadth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Foot_Length %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Foot_Breadth %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Grip_Diameter %></td>
+            <td class="text-center py-2 border-b"><%= measurements.Weight %></td>
+            <td class="text-center py-2 border-b"><%= measurements.BMI %></td>
+        </tr>
+    <% }) %>
+<% }else{ %>
+    <tr class="hover:bg-gray-200">
+        <td class="text-center py-2 border-b" colspan="45">No Data found.</td>
+    </tr>
+<% } %>
