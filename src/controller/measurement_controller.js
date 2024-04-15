@@ -191,4 +191,20 @@ route.get('/get_measurement_stat', async(req, res)=>{
     }
 })
 
+route.post('/search_measurement', async(req, res)=>{
+    try{
+        const data = req.body;
+
+        const measurements = await measurement_model.searchData(data);
+
+        const template = fs.readFileSync('views/measurement/measurements_tbl.ejs', 'utf-8');
+        const content = ejs.render(template, {data : measurements});
+
+        res.status(200).json({data : content});
+    }catch(error){
+        console.error('Error: ', error);
+        res.status(500).json({msg : 'Internal Server Error'});
+    }
+})
+
 module.exports = route;

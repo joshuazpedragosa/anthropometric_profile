@@ -15,6 +15,21 @@ class Measurement{
             })
         })
     }
+
+    static searchData(data){
+        return new Promise((resolve, reject)=>{
+            const {column, value} = data;
+            const sql = `SELECT * FROM respondent_data WHERE ?? LIKE ?`;
+
+            db.query(sql, [column, `%${value}%`],(error, result)=>{
+                if(error){
+                    reject(error);
+                }else{
+                    resolve(result);
+                }
+            })
+        })
+    }
 }
 
 module.exports = Measurement;

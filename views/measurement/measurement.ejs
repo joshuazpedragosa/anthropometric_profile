@@ -1,19 +1,29 @@
 <div class="py-24 px-8">
     <div class="mt-4 h-auto max-w-screen">
         <div class=" p-2 bg-white rounded-xl shadow-xl mx-4">
-            <div class="p-2 text-lg">
-                <i class='bx bx-table text-green-500'></i>
-                Measurement Table
+            <div class="flex p-2 text-lg">
+                <div>
+                    <i class='bx bx-table text-green-500'></i>
+                    Measurement Table
+                </div>
+                <div class="ms-auto">
+                    <select name="" onchange="searchMeasurement()" class="px-4 outline-none border focus:border-green-500" id="selectSearch"></select>
+                    <input type="text" onkeyup="searchMeasurement()" id="measurementSearch" placeholder="Searh" class="px-4 outline-none border focus:border-green-500">
+                </div>
             </div>
             <div class="max-h-screen max-w-auto overflow-y-auto overflow-x-auto">
-                <table class="max-w-80">
+                <table class="max-w-80" id="">
                     <thead id="measurementStat">
 
                     </thead>
                     <thead>
                         <tr class="bg-green-400">
-                            <th class="px-8 py-2">Respondent's No</th>
-                            <th class="px-8 py-2">Standing Height</th>
+                            <th class="px-8 py-2">
+                                Respondent's No                 
+                            </th>
+                            <th class="px-8 py-2">
+                                Standing Height
+                            </th>
                             <th class="px-8 py-2">Standing Eye Height</th>
                             <th class="px-8 py-2">Standing Shoulder Height</th>
                             <th class="px-8 py-2">Standing Elbow Height</th>
