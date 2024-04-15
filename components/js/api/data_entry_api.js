@@ -75,3 +75,53 @@ async function saveData(){
         text_box[x].value = '';
     }
 }
+
+const formTemplate = document.querySelector('#formTemplate');
+
+for (let x = 0; x < table_name.length; x++){
+    if(table_name[x] !== 'Respondent_No'){
+       let form_template = `<div class="flex flex-col">
+            <label for="">${header[x]}:</label>
+            <input type="number" name="${table_name[x]}" class="border outline-none px-2 text-gray-600 max-w-28 focus:border-green-500">
+        </div>`
+
+        formTemplate.innerHTML+=form_template;
+    }
+}
+
+async function saveMeasurement(){
+    const form = document.getElementById('measurementData');
+    const formData = new FormData(form);
+
+    let measurement_array = [];
+
+    for (let [name, value] of formData.entries()) {
+        if(value === ''){
+            measurement_array.push(0);
+        }else{
+            if(name === 'QCode'){
+                measurement_array.push(value);
+            }else{
+                measurement_array.push(parseInt(value));
+            }
+        }
+    }
+
+    const response = await fetch('/save_measurement', {
+        method: 'POST',
+        headers : {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify({data : measurement_array})
+    })
+
+    if(!response.ok){
+        alert('Something went wrong!');
+        throw new Error('Error: ', response.status);
+    }
+
+    const res_data = await response.json();
+
+    alert(res_data.msg);
+    
+}

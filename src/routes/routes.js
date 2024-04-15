@@ -17,6 +17,14 @@ route.get('/data_entry',  (req, res)=>{
     res.render('index', {content : content});
 })
 
+route.get('/measurement_data_entry',  (req, res)=>{
+    const q_code = req.query.q_code;
+    const template = fs.readFileSync('views/data_entry/measure_entry.ejs', 'utf-8');
+    const content = ejs.render(template, {code : q_code});
+
+    res.render('index', {content : content});
+})
+
 route.get('/measurement', (req, res)=>{
     const template = fs.readFileSync('views/measurement/measurement.ejs', 'utf-8');
     const content = ejs.render(template);

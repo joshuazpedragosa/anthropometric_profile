@@ -1,0 +1,23 @@
+<div class="flex h-screen py-24 px-8">
+    <div class="w-full h-auto bg-white p-4 rounded-xl shadow-xl">
+        <div class="p-4 text-xl">
+            <i class='bx bx-data text-green-500'></i>
+            Measurement Data Entry
+        </div>
+        <form action="" id="measurementData">
+            <div class="flex flex-wrap justify-center px-4 gap-4" id="formTemplate">
+                    <div class="flex flex-col">
+                        <label for="">QCode:</label>
+                        <input type="text" name="QCode" value="<%= code %>" readonly class="border outline-none px-2 max-w-32 text-gray-600 focus:border-green-500">
+                    </div>
+
+            </div>
+            <div class="flex flex-wrap justify-center gap-2 mt-12">
+                <button type="button" onclick="saveMeasurement()" class="p-2 bg-green-400 px-8 rounded-md shadow-xl hover:bg-green-500 duration-200 ease-linear">
+                    <i class='bx bx-user-plus' ></i>
+                    Add Data
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

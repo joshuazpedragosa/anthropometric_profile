@@ -30,6 +30,20 @@ class Measurement{
             })
         })
     }
+
+    static saveMeasurementData(data){
+        return new Promise((resolve, reject)=>{
+            const sql = `INSERT INTO respondent_data VALUES(?)`;
+
+            db.query(sql, [data],(error, result)=>{
+                if(error){
+                    reject(error);
+                }else{
+                    resolve(result);
+                }
+            })
+        })
+    }
 }
 
 module.exports = Measurement;

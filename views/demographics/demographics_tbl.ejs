@@ -1,16 +1,10 @@
 <% if(data && data.length > 0){ %>
     <% data.forEach((demographics)=>{ %>
         <tr class="hover:bg-gray-200">
-            <td class="hidden text-center py-2 border-b">
+            <td class="text-center py-2 border-b">
                 <div class="flex gap-4 justify-center text-xl">
-                    <a href="#">
-                        <i class='bx bx-edit text-blue-400'></i>
-                    </a>
-                    <a href="#">
-                        <i class='bx bx-street-view text-green-500' ></i>
-                    </a>
-                    <a href="#">
-                        <i class='bx bx-trash text-red-500' ></i>
+                    <a href="/measurement_data_entry?q_code=<%= demographics.q_code %>" class="bg-green-400 w-16 rounded-lg shadow-xl hover:bg-green-500">
+                        <i class='bx bx-street-view text-white' ></i>
                     </a>
                 </div>
             </td>

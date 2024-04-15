@@ -207,4 +207,24 @@ route.post('/search_measurement', async(req, res)=>{
     }
 })
 
+route.post('/save_measurement', async(req, res)=>{
+    try{
+        const data = req.body.data;
+
+        const check_val = {column : 'Respondent_No', value : data[0]};
+        const dataExist = await measurement_model.searchData(check_val);
+
+        if(dataExist.length > 0){
+           return res.status(200).json({msg : `Measurement for ${data[0]} already exist!`});
+        }
+
+        await measurement_model.saveMeasurementData(data);
+
+        res.status(200).json({msg : 'Measurement saved!'});
+    }catch(error){
+        console.error('Error: ', error);
+        res.status(500).json({msg : 'Internal Server Error'});
+    }
+})
+
 module.exports = route;
